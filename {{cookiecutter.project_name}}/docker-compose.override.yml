@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+    web:
+        volumes:
+            - '.:/code'
+        environment:
+            FLASK_ENV: development
+            SECRET_KEY: 'dev secret key not for production'
+            DB_PASSWORD: 'dev db password not for production'
+            # Set to your gid (use shell command "id" to find out)
+            WSGI_SOCKET_GID: 1000
+            MASTER_FIFO_GID: 1000
+
+    db:
+        environment:
+            POSTGRES_PASSWORD: 'dev db password not for production'

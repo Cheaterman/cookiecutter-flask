@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+    web:
+        image: {{cookiecutter.project_repository}}/{{cookiecutter.project_name}}:latest
+        networks:
+            - app
+        build: .
+        depends_on:
+            - db
+        volumes:
+            - './run:/run'
+        environment:
+            WSGI_MODULE: '{{cookiecutter.project_name}}:app'
+            TZ: 'CET-1'
+
+    db:
+        image: postgres
+        networks:
+            - app
+        volumes:
+            - './postgresql:/var/lib/postgresql/data'
+        environment:
+            TZ: 'CET-1'
+
+networks:
+    app:

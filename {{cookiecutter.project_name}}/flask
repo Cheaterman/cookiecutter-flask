@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Done as root for permissions - do change perms of created files afterwards...
+[[ "$@" == "shell" ]] && next_command="cat"
+(
+cat << EOF
+    cd /code
+    export FLASK_APP=\$WSGI_MODULE
+    flask ${@@Q}
+EOF
+$next_command
+) | docker-compose exec -T web sh
