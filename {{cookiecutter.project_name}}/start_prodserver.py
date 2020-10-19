@@ -3,7 +3,7 @@ import shlex
 import subprocess
 
 subprocess.run(shlex.split(
-    'docker-compose ' 
+    'docker-compose '
     # Use production files
     '-f docker-compose.yml '
     '-f docker-compose.production.yml '
