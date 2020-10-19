@@ -4,7 +4,6 @@ import subprocess
 
 subprocess.run(shlex.split('docker-compose stop web'))
 subprocess.run(shlex.split('docker-compose rm -f web'))
-subprocess.run(shlex.split('docker image prune -f'))
 subprocess.run(shlex.split('docker volume prune -f'))
 subprocess.run(shlex.split(
     'docker-compose '
@@ -15,6 +14,9 @@ subprocess.run(shlex.split(
     'up '
     # ... but only web...
     '--no-deps '
+    # ... rebuild it...
+    '--build '
     # ... and start it in the background
     '-d web'
 ))
+subprocess.run(shlex.split('docker image prune -f'))
