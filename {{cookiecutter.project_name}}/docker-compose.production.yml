@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+    web:
+        environment:
+            # You can generate a secret key (or password) with something like:
+            # import string
+            # ''.join(
+            #   random.choice(string.digits + string.ascii_letters)
+            #   for _ in range(length)
+            # )
+            # SECRET_KEY: ''
+            #
+            # This must be the same as POSTGRES_PASSWORD below
+            # DB_PASSWORD: ''
+            #
+            # Set to your www-data user gid - find out using `id www-data`
+            # WSGI_SOCKET_GID: 1000
+
+    db:
+        environment:
+            # This must be the same as DB_PASSWORD above
+            # POSTGRES_PASSWORD: ''
