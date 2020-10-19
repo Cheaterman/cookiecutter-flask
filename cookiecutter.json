@@ -1,5 +1,6 @@
 {
-    "project_title": "",
-    "project_name": "",
-    "project_repository": ""
+    "project_title": "New project",
+    "project_name": "{{ cookiecutter.project_title.lower().replace(' ', '_').replace('-', '_') }}",
+    "project_repository": "project_org",
+    "project_uri": "{{ cookiecutter.project_name }}"
 }
