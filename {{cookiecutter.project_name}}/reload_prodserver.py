@@ -4,8 +4,8 @@ import subprocess
 
 subprocess.run(shlex.split('docker-compose stop web'))
 subprocess.run(shlex.split('docker-compose rm -f web'))
+subprocess.run(shlex.split('docker image prune -f'))
 subprocess.run(shlex.split('docker volume prune -f'))
-subprocess.run(shlex.split('docker-compose build --no-cache web'))
 subprocess.run(shlex.split(
     'docker-compose '
     # Use production files
