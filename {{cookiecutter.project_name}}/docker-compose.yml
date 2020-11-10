@@ -5,6 +5,8 @@ services:
         image: {{cookiecutter.project_repository}}/{{cookiecutter.project_name}}:latest
         networks:
             - app
+        sysctls:
+            net.core.somaxconn: 1024
         build: .
         depends_on:
             - db
