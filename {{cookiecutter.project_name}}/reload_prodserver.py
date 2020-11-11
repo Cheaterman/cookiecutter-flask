@@ -2,9 +2,6 @@
 import shlex
 import subprocess
 
-subprocess.run(shlex.split('docker-compose stop web'))
-subprocess.run(shlex.split('docker-compose rm -f web'))
-subprocess.run(shlex.split('docker volume prune -f'))
 subprocess.run(shlex.split(
     'docker-compose '
     # Use production files
@@ -16,6 +13,8 @@ subprocess.run(shlex.split(
     '--no-deps '
     # ... rebuild it...
     '--build '
+    # ... re-create volumes...
+    '--renew-anon-volumes '
     # ... and start it in the background
     '-d web'
 ))
